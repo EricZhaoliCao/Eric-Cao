@@ -172,7 +172,7 @@ export default function Home() {
                   "Microstructure & Regime Detection: Based on L2 order book and funding rate data, extracted market microstructure features and employed a Hidden Markov Model to identify latent market states.",
                   "Multimodal Temporal Modeling: Optimized an end-to-end time-series modeling framework that integrates L2 order book data with NLP-based sentiment features."
                 ],
-                image: "/images/strategy-curve.jpg"
+                image: "/images/strategy-curve.png"
               },
               {
                 company: "Geek Union Fund",
