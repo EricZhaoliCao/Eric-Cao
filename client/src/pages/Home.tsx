@@ -402,8 +402,8 @@ export default function Home() {
               { src: "/images/photo-oakhurst.png", title: "Morning Glow", loc: "Oakhurst, Feb 2025", desc: "Morning glow and morning flow." },
               { src: "/images/photo-shanghai.png", title: "Shanghai Snow", loc: "Shanghai, 2024", desc: "Snowflakes swaying like elves in the rare winter breeze." },
               { src: "/images/photo-westlake.png", title: "West Lake Dawn", loc: "Hangzhou, Nov 2023", desc: "Morning glow reflecting on the tranquil waters." },
-              { src: "/images/photo-kennedy-1.jpg", title: "Kennedy Town Sunset", loc: "Hong Kong, 2024", desc: "Where the tram line ends and the ocean begins." },
-              { src: "/images/photo-kennedy-2.jpg", title: "Harbor Lights", loc: "Hong Kong, 2024", desc: "Chasing the last ferry under the golden hour." }
+              { src: "/images/photo-kennedy-1.jpg", title: "Kennedy Town Sunset", loc: "Hong Kong, 2025", desc: "Where the tram line ends and the ocean begins." },
+              { src: "/images/photo-kennedy-2.jpg", title: "Harbor Lights", loc: "Hong Kong, 2026", desc: "Chasing the last ferry under the golden hour." }
             ].map((photo, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="relative overflow-hidden aspect-[4/3] mb-4">
