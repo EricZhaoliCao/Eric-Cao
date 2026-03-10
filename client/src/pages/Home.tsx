@@ -140,8 +140,11 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold group-hover:text-white/90 transition-colors">Fudan University</h3>
                 <span className="font-mono text-muted-foreground">2020.09 - 2025.06</span>
               </div>
-              <div className="text-lg text-white/80 mb-4">Bachelor of Science in Mathematics (Minor: Economics & Finance) | GPA: 3.76/4.0</div>
+              <div className="text-lg text-white/80 mb-4">Bachelor of Science in Mathematics (Minor: Economics & Finance)</div>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
+                <li>
+                  <span className="text-white/60">GPA:</span> 3.76 / 4.0
+                </li>
                 <li>
                   <span className="text-white/60">Honors:</span>{" "}
                   <span className="inline-flex items-center gap-1 cursor-pointer hover:text-primary transition-colors" onClick={() => window.open('/wq-certificate.pdf', '_blank')}>
