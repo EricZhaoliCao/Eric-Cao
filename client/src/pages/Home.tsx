@@ -71,7 +71,7 @@ export default function Home() {
               <div className="pt-8 border-t border-white/10">
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">Core Competencies</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["Quantitative Trading", "Financial Modeling", "Machine Learning", "NLP", "High-Frequency Trading", "Python", "C++"].map((skill) => (
+                  {["Quantitative Trading", "Financial Modeling", "Machine Learning", "NLP", "High-Frequency Trading", "Rust", "Python", "C++"].map((skill) => (
                     <Badge key={skill} variant="secondary" className="rounded-none px-3 py-1 font-normal text-sm bg-white/5 hover:bg-white/10 border-white/10">
                       {skill}
                     </Badge>
@@ -101,7 +101,7 @@ export default function Home() {
             <div className="group">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
                 <h3 className="text-2xl font-semibold group-hover:text-white/90 transition-colors">The University of Hong Kong</h3>
-                <span className="font-mono text-muted-foreground">2025.09 - 2027.06</span>
+                <span className="font-mono text-muted-foreground">2025.09 - 2026.11</span>
               </div>
               <div className="text-lg text-white/80 mb-4">Master of Finance in Financial Technology</div>
               <div className="flex flex-col md:flex-row gap-6 mb-4">
@@ -140,14 +140,19 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold group-hover:text-white/90 transition-colors">Fudan University</h3>
                 <span className="font-mono text-muted-foreground">2020.09 - 2025.06</span>
               </div>
-              <div className="text-lg text-white/80 mb-4">Bachelor of Science in Mathematics (Minor: Economics & Finance)</div>
+              <div className="text-lg text-white/80 mb-4">Bachelor of Science in Mathematics (Minor: Economics & Finance) | GPA: 3.76/4.0</div>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
                 <li>
-                  <span className="text-white/60">Honors:</span> First-Class Scholarship (2024), 
-                  <span className="inline-flex items-center gap-1 ml-1 cursor-pointer hover:text-primary transition-colors" onClick={() => window.open('/wq-certificate.pdf', '_blank')}>
+                  <span className="text-white/60">Honors:</span>{" "}
+                  <span className="inline-flex items-center gap-1 cursor-pointer hover:text-primary transition-colors" onClick={() => window.open('/wq-certificate.pdf', '_blank')}>
                     WorldQuant Gold Medal (2025) <ExternalLink className="w-3 h-3" />
-                  </span>, 
-                  IMC Prosperity3 Global Top 2% (2025)
+                  </span>,
+                  First-Class Scholarship (2024),
+                  IMC Prosperity3 Global Top 2% (2025),{" "}
+                  <span className="inline-flex items-center gap-1 cursor-pointer hover:text-primary transition-colors" onClick={() => window.open('/Kaggle.pdf', '_blank')}>
+                    Kaggle DRW Crypto Market Prediction Top 10% (2025) <ExternalLink className="w-3 h-3" />
+                  </span>,
+                  MCM Meritorious Winner (2023)
                 </li>
                 <li><span className="text-white/60">Core Courses:</span> Mathematical Modeling, Numerical Solution of DE, Real Analysis, Financial Engineering, Econometrics</li>
               </ul>
@@ -164,13 +169,23 @@ export default function Home() {
           <div className="grid gap-8">
             {[
               {
+                company: "NonConvex Technology",
+                role: "Quantitative Researcher (HFT: 35B average daily volume)",
+                period: "Shanghai | Feb 2026 - Present",
+                desc: [
+                  "Conducted proprietary HFT research on equity index futures, focusing on microstructure alpha and execution optimization.",
+                  "Low-Latency Execution: Built Rust-based execution modules with queue-reactive order slicing and impact-aware execution."
+                ]
+              },
+              {
                 company: "Matrixport",
-                role: "Quantitative Trader",
-                period: "Hong Kong | Sep 2025 - Nov 2025",
+                role: "Quantitative Trader (AUM: $10B+ in digital assets)",
+                period: "Hong Kong | Sep 2025 - Dec 2025",
                 desc: [
                   "Conducted crypto microstructure research, focusing on L2 signal extraction and multi-frequency factor modeling.",
-                  "Microstructure & Regime Detection: Based on L2 order book and funding rate data, extracted market microstructure features and employed a Hidden Markov Model to identify latent market states.",
-                  "Multimodal Temporal Modeling: Optimized an end-to-end time-series modeling framework that integrates L2 order book data with NLP-based sentiment features."
+                  "Market Making Strategy Research (Crypto): Studied inventory-aware optimal quoting in a limit order book, adjusting bid–ask spreads and order skew using L2 order book dynamics and funding-rate signals to improve execution quality in backtests.",
+                  "Microstructure & Regime Detection: Based on L2 order book and funding rate data, extracted market microstructure features and employed a Hidden Markov Model to identify latent market states, enabling dynamic signal adaptation.",
+                  "Multimodal Temporal Modeling: Optimized an end-to-end time-series modeling framework that integrates L2 order book data with NLP-based sentiment features, utilizing LSTM/Transformer to capture market dynamics."
                 ],
                 image: "/images/strategy-curve.png"
               },
@@ -180,8 +195,10 @@ export default function Home() {
                 period: "Shanghai | Jun 2025 - Aug 2025",
                 desc: [
                   "Responsible for factor mining on daily and hourly CTA data, as well as multi-window factor training and portfolio construction.",
-                  "Factor Mining: Conducted daily/hourly CTA factor research via multi-window training, dynamic smoothing, and IC-return filtering to build a library of 80+ signals.",
-                  "Operator Development: Refactored core signal modules, achieving ~77% runtime improvement via Numba JIT and pybind11-based C++ extensions."
+                  "Factor Mining: Conducted daily/hourly CTA factor research via multi-window training, dynamic smoothing, and IC–return filtering to build a library of 80+ signals. Applied regime-sensitive sampling to improve robustness across market states.",
+                  "Operator Development: Refactored core signal modules, achieving ~77% runtime improvement via Numba JIT and pybind11-based C++ extensions with SIMD (AVX2). Integrated multi-horizon operators, cross-sectional allocation, and risk-budget weighting.",
+                  "Loss & Statistical Regularization: Designed a robust loss (winsorization, Huber, directional penalties) and applied Newey–West adjustments to address heteroskedasticity and autocorrelation in factor evaluation.",
+                  "Rule-Based Features & Portfolio: Extracted rule-based K-line features (IC up to 0.12) and built multi-factor portfolios using SGD-based allocation + KMeans, achieving Sharpe 2.64 / Calmar 4.15 out-of-sample."
                 ],
                 image: "/images/strategy-geek-union.jpg"
               },
@@ -191,8 +208,8 @@ export default function Home() {
                 period: "Shanghai | Jan 2025 - May 2025",
                 desc: [
                   "Responsible for CTA strategy and stock strategy research, backtesting, and deployment in simulation and live trading.",
-                  "Cross-Sectional Futures Alpha: Built minute-level multi-factor long-short strategies using roll yield, basis momentum, and other high-frequency features.",
-                  "Global Regime Rotation: Developed momentum-based ETF rotation strategies for volatile, regime-switching markets."
+                  "Cross-Sectional Futures Alpha: Built minute-level multi-factor long–short strategies using roll yield, basis momentum, and other high-frequency features. Applied XGBoost and Newey–West residual adjustments, achieving Sharpe 1.78, mdd 9.6%.",
+                  "High-Frequency Statistical Arbitrage: Identified cointegrated TSLA-NVDA pairs via 5-min bars. Engineered a dynamic-β hedged Z-score signal with rolling GLS regression, achieving a backtest Sharpe of 3.435."
                 ]
               }
             ].map((job, index) => (
@@ -374,8 +391,8 @@ export default function Home() {
                 </div>
 
                 {/* Optiver Certificate - Placeholder/Download */}
-                <div className="flex items-center justify-between p-4 border border-white/10 hover:border-white/30 transition-colors cursor-pointer group" onClick={() => window.open('/OptiverCertificate.pdf', '_blank')}>
-                  <span className="font-medium text-sm group-hover:text-white transition-colors">Optiver - Trading at the Close Silver Medal</span>
+                <div className="flex items-center justify-between p-4 border border-white/10 hover:border-white/30 transition-colors cursor-pointer group" onClick={() => window.open('/Kaggle.pdf', '_blank')}>
+                  <span className="font-medium text-sm group-hover:text-white transition-colors">DRW - Crypto Market Prediction</span>
                   <Button variant="ghost" size="icon" className="h-8 w-8">
                     <Download className="w-4 h-4" />
                   </Button>
