@@ -172,7 +172,7 @@ export default function Home() {
           <div className="grid gap-8">
             {[
               {
-                company: "NonConvex Technology (HFT: 35B average daily volume)",
+                company: "NonConvex Technology (HFT: ¥35B+ average daily volume)",
                 role: "Quantitative Researcher",
                 period: "Shanghai | Feb 2026 - Present",
                 desc: [
