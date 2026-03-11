@@ -172,8 +172,8 @@ export default function Home() {
           <div className="grid gap-8">
             {[
               {
-                company: "NonConvex Technology",
-                role: "Quantitative Researcher (HFT: 35B average daily volume)",
+                company: "NonConvex Technology (HFT: 35B average daily volume)",
+                role: "Quantitative Researcher",
                 period: "Shanghai | Feb 2026 - Present",
                 desc: [
                   "Conducted proprietary HFT research on equity index futures, focusing on microstructure alpha and execution optimization.",
@@ -181,8 +181,8 @@ export default function Home() {
                 ]
               },
               {
-                company: "Matrixport",
-                role: "Quantitative Trader (AUM: $10B+ in digital assets)",
+                company: "Matrixport (AUM: $10B+ in digital assets)",
+                role: "Quantitative Trader",
                 period: "Hong Kong | Sep 2025 - Dec 2025",
                 desc: [
                   "Conducted crypto microstructure research, focusing on L2 signal extraction and multi-frequency factor modeling.",
