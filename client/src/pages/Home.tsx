@@ -174,7 +174,7 @@ export default function Home() {
               {
                 company: "NonConvex Technology (HFT: ¥35B+ average daily volume)",
                 role: "Quantitative Researcher",
-                period: "Shanghai | Feb 2026 - Present",
+                period: "Shanghai | Mar 2026 - Present",
                 desc: [
                   "Conducted proprietary HFT research on equity index futures, focusing on microstructure alpha and execution optimization.",
                   "Low-Latency Execution: Built Rust-based execution modules with queue-reactive order slicing and impact-aware execution."
