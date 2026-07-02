@@ -42,6 +42,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-signal: var(--signal);
+  --color-signal-dim: var(--signal-dim);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -52,77 +54,97 @@
 }
 
 :root {
-  /* Dark Theme by Default for "Cool/Academic" look */
-  --background: oklch(0.10 0.01 240); /* Very dark navy/black */
-  --foreground: oklch(0.92 0.00 0); /* Off-white */
-  
-  --card: oklch(0.13 0.01 240);
-  --card-foreground: oklch(0.92 0.00 0);
-  
-  --popover: oklch(0.13 0.01 240);
-  --popover-foreground: oklch(0.92 0.00 0);
-  
-  --primary: oklch(0.92 0.00 0); /* White for primary actions */
-  --primary-foreground: oklch(0.10 0.01 240);
-  
-  --secondary: oklch(0.20 0.01 240);
-  --secondary-foreground: oklch(0.92 0.00 0);
-  
-  --muted: oklch(0.20 0.01 240);
-  --muted-foreground: oklch(0.60 0.01 240);
-  
-  --accent: oklch(0.20 0.01 240);
-  --accent-foreground: oklch(0.92 0.00 0);
-  
-  --destructive: oklch(0.4 0.15 20);
-  --destructive-foreground: oklch(0.92 0.00 0);
-  
-  --border: oklch(0.25 0.01 240);
-  --input: oklch(0.25 0.01 240);
-  --ring: oklch(0.80 0.00 0);
-  
-  --radius: 0rem; /* Sharp corners for academic/brutalist feel */
-  
-  /* Charts - Cool tones */
-  --chart-1: oklch(0.60 0.15 240); /* Blue */
-  --chart-2: oklch(0.65 0.15 200); /* Cyan */
-  --chart-3: oklch(0.70 0.10 240); /* Light Blue */
-  --chart-4: oklch(0.55 0.15 280); /* Purple */
-  --chart-5: oklch(0.50 0.10 240); /* Dark Blue */
+  /* Institutional Research Desk — deep cool ink base, disciplined neutrals,
+     a single signature "signal" accent (the ParticleField green). */
+  --background: oklch(0.135 0.012 250); /* deep cool ink */
+  --foreground: oklch(0.93 0.004 250); /* off-white */
+
+  --card: oklch(0.165 0.012 250);
+  --card-foreground: oklch(0.93 0.004 250);
+
+  --popover: oklch(0.155 0.012 250);
+  --popover-foreground: oklch(0.93 0.004 250);
+
+  --primary: oklch(0.94 0.004 250); /* off-white primary */
+  --primary-foreground: oklch(0.135 0.012 250);
+
+  --secondary: oklch(0.22 0.012 250);
+  --secondary-foreground: oklch(0.93 0.004 250);
+
+  --muted: oklch(0.22 0.012 250);
+  --muted-foreground: oklch(0.62 0.012 250); /* mid neutral for meta text */
+
+  --accent: oklch(0.22 0.012 250);
+  --accent-foreground: oklch(0.93 0.004 250);
+
+  --destructive: oklch(0.5 0.16 25);
+  --destructive-foreground: oklch(0.95 0.004 250);
+
+  --border: oklch(0.30 0.012 250);
+  --input: oklch(0.30 0.012 250);
+  --ring: oklch(0.80 0.10 148);
+
+  --radius: 0rem; /* sharp corners — editorial / institutional */
+
+  /* Signature signal color — matches ParticleField rgb(57, 211, 83) */
+  --signal: oklch(0.80 0.19 148);
+  --signal-dim: oklch(0.62 0.12 148);
+
+  /* Charts — cool + one signal tone */
+  --chart-1: oklch(0.80 0.19 148); /* signal green */
+  --chart-2: oklch(0.65 0.13 220); /* steel blue */
+  --chart-3: oklch(0.72 0.09 200); /* pale cyan */
+  --chart-4: oklch(0.60 0.12 260); /* muted indigo */
+  --chart-5: oklch(0.50 0.03 250); /* graphite */
 }
 
 .dark {
-  /* Same as root since we are enforcing dark mode style */
-  --background: oklch(0.10 0.01 240);
-  --foreground: oklch(0.92 0.00 0);
-  --card: oklch(0.13 0.01 240);
-  --card-foreground: oklch(0.92 0.00 0);
-  --popover: oklch(0.13 0.01 240);
-  --popover-foreground: oklch(0.92 0.00 0);
-  --primary: oklch(0.92 0.00 0);
-  --primary-foreground: oklch(0.10 0.01 240);
-  --secondary: oklch(0.20 0.01 240);
-  --secondary-foreground: oklch(0.92 0.00 0);
-  --muted: oklch(0.20 0.01 240);
-  --muted-foreground: oklch(0.60 0.01 240);
-  --accent: oklch(0.20 0.01 240);
-  --accent-foreground: oklch(0.92 0.00 0);
-  --destructive: oklch(0.4 0.15 20);
-  --destructive-foreground: oklch(0.92 0.00 0);
-  --border: oklch(0.25 0.01 240);
-  --input: oklch(0.25 0.01 240);
-  --ring: oklch(0.80 0.00 0);
+  --background: oklch(0.135 0.012 250);
+  --foreground: oklch(0.93 0.004 250);
+  --card: oklch(0.165 0.012 250);
+  --card-foreground: oklch(0.93 0.004 250);
+  --popover: oklch(0.155 0.012 250);
+  --popover-foreground: oklch(0.93 0.004 250);
+  --primary: oklch(0.94 0.004 250);
+  --primary-foreground: oklch(0.135 0.012 250);
+  --secondary: oklch(0.22 0.012 250);
+  --secondary-foreground: oklch(0.93 0.004 250);
+  --muted: oklch(0.22 0.012 250);
+  --muted-foreground: oklch(0.62 0.012 250);
+  --accent: oklch(0.22 0.012 250);
+  --accent-foreground: oklch(0.93 0.004 250);
+  --destructive: oklch(0.5 0.16 25);
+  --destructive-foreground: oklch(0.95 0.004 250);
+  --border: oklch(0.30 0.012 250);
+  --input: oklch(0.30 0.012 250);
+  --ring: oklch(0.80 0.10 148);
+  --signal: oklch(0.80 0.19 148);
+  --signal-dim: oklch(0.62 0.12 148);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-white/20;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-signal/25 selection:text-foreground;
+    /* Subtle depth behind the ParticleField — a faint cool vignette + a hint
+       of signal glow at the top, so the dark base doesn't read as flat black. */
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, oklch(0.8 0.19 148 / 0.06), transparent 60%),
+      radial-gradient(100% 60% at 100% 0%, oklch(0.3 0.05 250 / 0.35), transparent 55%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium tracking-tight;
+  }
+  ::selection {
+    background: oklch(0.8 0.19 148 / 0.25);
   }
 }
 
@@ -133,19 +155,62 @@
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    max-width: 1000px; /* Narrower container for academic reading experience */
+    max-width: 1080px;
   }
-  
+
+  /* Mono "data layer" — labels, coordinates, indices, timestamps. */
+  .overline {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground;
+  }
+  .data {
+    @apply font-mono tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* Numbered section header: 01 / SECTION —————— */
+  .section-head {
+    @apply flex items-center gap-4 mb-10;
+  }
+  .section-head__index {
+    @apply font-mono text-xs tracking-[0.2em] text-signal shrink-0;
+  }
+  .section-head__title {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight shrink-0;
+  }
+  .section-head__rule {
+    @apply h-px bg-border flex-1;
+  }
+
+  /* Legacy helper kept for any remaining usage. */
   .section-title {
     @apply text-2xl font-semibold mb-8 flex items-center gap-4;
   }
-  
   .section-title::after {
     content: "";
-    @apply h-[1px] bg-border flex-1;
+    @apply h-px bg-border flex-1;
   }
 
   .glass-panel {
-    @apply bg-white/5 border border-white/10 backdrop-blur-sm;
+    @apply bg-white/[0.03] border border-white/10 backdrop-blur-sm;
+  }
+
+  /* Animated underline for text links / nav items. */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
   }
 }
