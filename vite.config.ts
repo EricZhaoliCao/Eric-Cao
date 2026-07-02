@@ -150,7 +150,10 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+// Manus/builder dev-tooling plugins (jsxLoc, manus-runtime, debug-collector)
+// removed for standalone production deploy — they injected a ~366KB inline
+// runtime into index.html and are not needed outside the Manus editor.
+const plugins = [react(), tailwindcss()];
 
 export default defineConfig({
   plugins,

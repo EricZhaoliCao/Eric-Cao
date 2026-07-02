@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, FileText, Download, ExternalLink, Camera, Eye } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import ParticleField from "@/components/ParticleField";
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -14,7 +15,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-white/20">
+    <div className="min-h-screen text-foreground font-sans selection:bg-white/20">
+      <ParticleField className="fixed inset-0 -z-10 pointer-events-none" />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
         <div className="container flex items-center justify-between h-16">
@@ -25,6 +27,7 @@ export default function Home() {
             <button onClick={() => scrollToSection('projects')} className="hover:text-foreground transition-colors">Projects</button>
             <button onClick={() => scrollToSection('publications')} className="hover:text-foreground transition-colors">Publications</button>
             <button onClick={() => scrollToSection('photography')} className="hover:text-foreground transition-colors">Photography</button>
+            <a href="https://research.erictsao.cn" target="_blank" rel="noopener" className="flex items-center gap-1 hover:text-foreground transition-colors">Research <ExternalLink className="w-3 h-3" /></a>
           </div>
           <Button variant="outline" className="gap-2" onClick={() => window.open('/resume.pdf', '_blank')}>
               <Download className="w-4 h-4" /> Resume
@@ -34,15 +37,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="about" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/hero-bg.jpg" 
-            alt="Background" 
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background"></div>
-        </div>
-        
+
         <div className="container relative z-10">
           <div className="flex flex-col md:flex-row gap-12 items-start">
             <div className="flex-1 space-y-8">
@@ -85,7 +80,7 @@ export default function Home() {
               <img 
                 src="/images/avatar.jpg" 
                 alt="Zhaoli Cao" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 relative z-10 border border-white/10"
+                className="w-full h-full object-cover transition-all duration-500 relative z-10 border border-white/10"
               />
             </div>
           </div>
@@ -171,6 +166,15 @@ export default function Home() {
           
           <div className="grid gap-8">
             {[
+              {
+                company: "Longqi Scientific Investment (Top 10 Quant Fund · AUM ¥60B+)",
+                role: "Quantitative Researcher — ML-Based Portfolio Optimization",
+                period: "Hangzhou | Jun 2026 - Present",
+                desc: [
+                  "Research on machine-learning-based portfolio optimization at a top-10 domestic quantitative fund (¥60B+ AUM).",
+                  "Portfolio Optimization: Developing ML-driven allocation models that combine multi-horizon return forecasts with risk-, cost-, and constraint-aware optimization."
+                ]
+              },
               {
                 company: "NonConvex Technology (HFT: ¥35B+ average daily volume)",
                 role: "Quantitative Researcher",
@@ -271,6 +275,15 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
+                title: "eLove — Alpha Factor Research Platform",
+                role: "Founder & Sole Developer",
+                date: "2026 - Present",
+                image: "/images/project-nlp.jpg",
+                tags: ["Quant Research", "Factor Mining", "Live Portal"],
+                desc: "A production quant framework with 800+ alpha factors mined via GP / RL / LLM engines, full portfolio construction, and a live read-only research portal.",
+                link: "https://research.erictsao.cn"
+              },
+              {
                 title: "IMC Prosperity3 Trading Competition",
                 role: "Team Leader (Global Top 2%)",
                 date: "Apr 2025",
@@ -278,15 +291,6 @@ export default function Home() {
                 tags: ["Quant Trading", "Market Making", "Arbitrage"],
                 desc: "Led quantitative strategy design including order book market making, ETF premium arbitrage, and cross-asset relative value strategies.",
                 link: "https://github.com/EricZhaoliCao/IMC-Prosperity3"
-              },
-              {
-                title: "Fake News Detection with NLP",
-                role: "MIT Supervised Project",
-                date: "Mar 2025 - May 2025",
-                image: "/images/project-nlp.jpg",
-                tags: ["NLP", "Deep Learning", "RoBERTa"],
-                desc: "Integrated RoBERTa and XLNet models with uncertainty-based pseudo-labeling algorithm, achieving F1 score of 0.985.",
-                link: "https://github.com/EricZhaoliCao/Fake-News-Detection-with-NLP"
               },
               {
                 title: "Bitcoin Price Prediction",

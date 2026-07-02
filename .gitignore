@@ -104,3 +104,8 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Redundant local copies / icon packs (not part of the site source)
+zhaoli_portfolio/
+pack-saucer/
+pack-terminal/
