@@ -15,6 +15,13 @@
   font-display: swap;
   src: url("/fonts/jetbrains-mono-latin-var.woff2") format("woff2");
 }
+@font-face {
+  font-family: "Great Vibes";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/great-vibes.woff2") format("woff2");
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -194,6 +201,12 @@
     @apply bg-white/[0.03] border border-white/10 backdrop-blur-sm;
   }
 
+  /* Calligraphic script for the gallery. */
+  .font-script {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+  }
+
   /* Animated underline for text links / nav items. */
   .link-underline {
     position: relative;
@@ -213,4 +226,114 @@
   .link-underline:hover::after {
     transform: scaleX(1);
   }
+
+  /* Cursor-tracked spotlight glow on bordered surfaces (Linear / Vercel style).
+     Component writes --mx/--my; glow is a pointer-events-none overlay so it
+     never blocks the underlying click target. */
+  .spotlight {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), oklch(0.8 0.19 148 / 0.14), transparent 60%);
+  }
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+
+  /* Faint technical background textures to break up dense text sections. */
+  .dot-grid {
+    background-image: radial-gradient(oklch(0.93 0.004 250 / 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: -1px -1px;
+  }
+  .line-grid {
+    background-image:
+      linear-gradient(oklch(0.93 0.004 250 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.93 0.004 250 / 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Frosted-glass content module. Backdrop blur = 磨砂; the inset top hairline
+     is a glass sheen; hover lifts + scales + glows for a tactile card feel.
+     (Transform lives here, not on the framer-motion wrapper, to avoid clashing
+     with the entrance animation.) */
+  .panel-card {
+    position: relative;
+    border: 1px solid oklch(0.93 0.004 250 / 0.1);
+    background: linear-gradient(180deg, oklch(1 0 0 / 0.055), oklch(1 0 0 / 0.02));
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    box-shadow:
+      inset 0 1px 0 0 oklch(1 0 0 / 0.06),
+      0 10px 30px -18px oklch(0 0 0 / 0.7);
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease,
+      box-shadow 0.4s ease,
+      background 0.3s ease;
+    will-change: transform;
+  }
+  .panel-card:hover {
+    border-color: oklch(0.8 0.19 148 / 0.4);
+    background: linear-gradient(180deg, oklch(1 0 0 / 0.075), oklch(1 0 0 / 0.03));
+    box-shadow:
+      inset 0 1px 0 0 oklch(1 0 0 / 0.1),
+      0 26px 60px -22px oklch(0 0 0 / 0.78),
+      0 0 36px -12px oklch(0.8 0.19 148 / 0.28);
+  }
+
+  /* Monogram tile — mono initials in a signal-tinted square. */
+  .mono-tile {
+    @apply grid place-items-center font-mono font-semibold tracking-tight text-signal
+           border border-signal/25 bg-signal/[0.06] shrink-0;
+  }
+}
+
+/* Blinking terminal cursor. */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1.05s steps(1, end) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink { animation: none; opacity: 1; }
+}
+
+/* Holographic projection: static CRT scanlines + a bright bar sweeping
+   top-to-bottom to read as a live "refresh". */
+.holo-lines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 2px,
+    oklch(0 0 0 / 0.28) 2px 3px
+  );
+}
+@keyframes holoscan {
+  0% { top: -20%; }
+  100% { top: 100%; }
+}
+.holo-scan {
+  height: 22%;
+  top: -20%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    oklch(0.8 0.19 148 / 0.55),
+    transparent
+  );
+  animation: holoscan 2.4s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .holo-scan { animation: none; display: none; }
 }

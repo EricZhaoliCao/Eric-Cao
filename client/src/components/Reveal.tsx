@@ -8,16 +8,21 @@ type Props = {
   delay?: number;
   /** Vertical travel distance in px (default 16). */
   y?: number;
+  /** Horizontal travel distance in px (for diagonal entrances). */
+  x?: number;
+  /** Initial rotation in deg (settles to 0) — gives a "comes in askew" feel. */
+  rotate?: number;
+  /** Initial scale (settles to 1) — <1 reads as a stretch-into-place. */
+  scale?: number;
   as?: "div" | "section" | "li" | "span";
 };
 
 /**
- * Quiet scroll-reveal: fade + small upward drift as the element enters the
- * viewport, once. Respects prefers-reduced-motion (renders static, no motion).
- * The eased, understated entrance is what gives the page its "from the top
- * institution" composure instead of content snapping into place.
+ * Quiet scroll-reveal: fade + drift (optionally diagonal, rotated, and scaled)
+ * as the element enters the viewport, once. Respects prefers-reduced-motion
+ * (renders static, no motion).
  */
-export default function Reveal({ children, className, delay = 0, y = 16, as = "div" }: Props) {
+export default function Reveal({ children, className, delay = 0, y = 16, x = 0, rotate = 0, scale = 1, as = "div" }: Props) {
   const reduce = useReducedMotion();
   const MotionTag = motion[as];
 
@@ -29,10 +34,10 @@ export default function Reveal({ children, className, delay = 0, y = 16, as = "d
   return (
     <MotionTag
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, x, rotate, scale }}
+      whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0, scale: 1 }}
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </MotionTag>
