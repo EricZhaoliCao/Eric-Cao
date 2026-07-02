@@ -57,7 +57,7 @@ export default function AvatarCard({ src, alt }: Props) {
             <span className="font-mono text-xs text-signal-dim">// signal off · tap</span>
           </div>
         ) : (
-          <div className={`relative z-10 w-full h-full overflow-hidden border border-white/15 ${RADIUS}`}>
+          <div className={`relative z-10 w-full h-full overflow-hidden border border-white/15 bg-[oklch(0.13_0.012_250)] ${RADIUS}`}>
             <motion.img
               src={src}
               alt={alt}
