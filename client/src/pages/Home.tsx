@@ -149,7 +149,7 @@ export default function Home() {
       <ParticleField className="fixed inset-0 -z-10 pointer-events-none" />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-md border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-white/5">
         <div className="container flex items-center justify-between h-16">
           <button onClick={() => scrollToSection("about")} className="flex items-center gap-2.5 group">
             <span className="w-2 h-2 bg-signal shadow-[0_0_10px_var(--signal)] transition-transform group-hover:scale-125" />
@@ -231,7 +231,7 @@ export default function Home() {
                   {skills.map((skill) => (
                     <Popover key={skill.name}>
                       <PopoverTrigger asChild>
-                        <button className="rounded-none px-3 py-1 font-normal text-sm bg-white/[0.03] hover:bg-signal/10 hover:text-signal border border-white/10 hover:border-signal/40 data-[state=open]:bg-signal/15 data-[state=open]:text-signal data-[state=open]:border-signal/50 transition-colors cursor-pointer">
+                        <button className="rounded-none px-3 py-1 font-normal text-sm bg-[oklch(0.18_0.012_250/0.8)] backdrop-blur-sm hover:bg-signal/10 hover:text-signal border border-white/10 hover:border-signal/40 data-[state=open]:bg-signal/15 data-[state=open]:text-signal data-[state=open]:border-signal/50 transition-colors cursor-pointer">
                           {skill.name}
                         </button>
                       </PopoverTrigger>
@@ -440,7 +440,7 @@ export default function Home() {
               <Reveal key={index} delay={Math.min(index * 0.07, 0.2)} className="h-full">
                 <Spotlight className="h-full">
                 <Card
-                  className="h-full bg-transparent border border-white/10 hover:border-signal/40 transition-colors rounded-none overflow-hidden group cursor-pointer"
+                  className="h-full bg-[oklch(0.16_0.012_250/0.9)] backdrop-blur-md border border-white/10 hover:border-signal/40 transition-colors rounded-none overflow-hidden group cursor-pointer"
                   onClick={() => window.open(project.link, "_blank")}
                 >
                   <div className="aspect-video overflow-hidden relative">
@@ -478,7 +478,7 @@ export default function Home() {
             <Reveal>
               <h3 className="overline mb-6">Publications & Research</h3>
               <div className="space-y-4">
-                <div className="p-6 border border-white/10 hover:border-signal/30 hover:bg-white/[0.02] transition-colors cursor-pointer group">
+                <div className="p-6 bg-[oklch(0.16_0.012_250/0.88)] backdrop-blur-md border border-white/10 hover:border-signal/30 transition-colors cursor-pointer group">
                   <div className="flex items-start gap-4">
                     <FileText className="w-6 h-6 text-white/40 group-hover:text-signal transition-colors mt-1 shrink-0" />
                     <div>
@@ -504,7 +504,7 @@ export default function Home() {
               <h3 className="overline mb-6">Transcripts & Certificates</h3>
               <div className="space-y-3">
                 {credentials.map((c) => (
-                  <div key={c.label} className="flex items-center justify-between p-4 border border-white/10 hover:border-signal/40 transition-colors cursor-pointer group" onClick={() => window.open(c.file, "_blank")}>
+                  <div key={c.label} className="flex items-center justify-between p-4 bg-[oklch(0.16_0.012_250/0.85)] backdrop-blur-md border border-white/10 hover:border-signal/40 transition-colors cursor-pointer group" onClick={() => window.open(c.file, "_blank")}>
                     <span className="font-medium text-sm group-hover:text-signal transition-colors">{c.label}</span>
                     <Download className="w-4 h-4 text-muted-foreground group-hover:text-signal transition-colors shrink-0" />
                   </div>
