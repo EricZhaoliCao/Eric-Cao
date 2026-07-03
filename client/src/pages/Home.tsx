@@ -94,6 +94,11 @@ const projects = [
 
 const credentials = [
   { label: "HKU Master of Finance Transcript", file: "/Transcript.pdf" },
+  { label: "BOC Financial Technology Talent Cultivation Scholarship (HK$100,000)", file: "/boc-talent-scholarship.pdf" },
+  { label: "MFFinTech Scholarship (HK$46,200)", file: "/mffintech-scholarship.pdf" },
+  { label: "MFIN7060 Gold Presentation Recognition", file: "/images/mfin7060-gold-presentation.jpg" },
+  { label: "MFIN7060 Group Leader Contribution Recognition", file: "/images/mfin7060-group-leader.jpg" },
+  { label: "FinTech & Data Analytic Club - Certificate of Appreciation (VP)", file: "/fintech-club-appreciation.pdf" },
   { label: "NLP Certificate", file: "/nlp-paper.pdf" },
   { label: "WorldQuant Challenge Gold Medal Certificate", file: "/WorldQuantChallengeGoldCertificate.pdf" },
   { label: "DRW - Crypto Market Prediction", file: "/Kaggle.pdf" }
@@ -279,7 +284,25 @@ export default function Home() {
                 <div className="flex-1">
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
                     <li><span className="text-white/60">GPA:</span> <span className="data text-signal">3.99/4.0</span></li>
-                    <li><span className="text-white/60">Honors:</span> Vice President of the HKU Elite Club (Fintech)</li>
+                    <li>
+                      <span className="text-white/60">Honors:</span>{" "}
+                      <span className="inline-flex items-center gap-1 cursor-pointer text-white/90 hover:text-signal transition-colors" onClick={() => window.open("/boc-talent-scholarship.pdf", "_blank")}>
+                        BOC Financial Technology Talent Cultivation Scholarship (HK$100,000) <ExternalLink className="w-3 h-3" />
+                      </span>,{" "}
+                      <span className="inline-flex items-center gap-1 cursor-pointer text-white/90 hover:text-signal transition-colors" onClick={() => window.open("/mffintech-scholarship.pdf", "_blank")}>
+                        MFFinTech Scholarship (HK$46,200) <ExternalLink className="w-3 h-3" />
+                      </span>,{" "}
+                      <span className="inline-flex items-center gap-1 cursor-pointer text-white/90 hover:text-signal transition-colors" onClick={() => window.open("/images/mfin7060-gold-presentation.jpg", "_blank")}>
+                        MFIN7060 Gold Presentation Recognition <ExternalLink className="w-3 h-3" />
+                      </span>,{" "}
+                      <span className="inline-flex items-center gap-1 cursor-pointer text-white/90 hover:text-signal transition-colors" onClick={() => window.open("/images/mfin7060-group-leader.jpg", "_blank")}>
+                        MFIN7060 Group Leader Contribution Recognition <ExternalLink className="w-3 h-3" />
+                      </span>,{" "}
+                      <span className="inline-flex items-center gap-1 cursor-pointer text-white/90 hover:text-signal transition-colors" onClick={() => window.open("/fintech-club-appreciation.pdf", "_blank")}>
+                        Vice President, FinTech &amp; Data Analytic Club <ExternalLink className="w-3 h-3" />
+                      </span>
+                    </li>
+                    <li><span className="text-white/60">Core Courses:</span> Quantitative Trading, Machine Learning and AI, Mathematical Techniques in Finance, Derivative Securities, Investment Analysis &amp; Portfolio Management, Advanced Financial Programming, Text Analytics &amp; NLP in FinTech</li>
                   </ul>
                 </div>
                 <div className="shrink-0">
